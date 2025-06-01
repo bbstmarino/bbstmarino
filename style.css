@@ -1,0 +1,590 @@
+/* ==========================
+   RESET DE BASE
+   ========================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+/* ==========================
+   FOND NOIR & TYPOGRAPHIE GLOBALE
+   ========================== */
+body {
+  background-color: #000;
+  color: #fff;
+  font-family: Arial, sans-serif;
+  line-height: 1.5;
+  overflow-x: hidden;
+  padding-top: 60px; /* Décale le contenu sous la navbar fixe (≈60px de haut) */
+}
+
+/* ==========================
+   MENU FIXE EN HAUT (NAVBAR)
+   ========================== */
+.navbar {
+  background-color: #111;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 999;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+}
+
+.nav-menu {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  padding-left: 20px;
+  height: 60px;
+}
+
+.nav-menu > li {
+  position: relative;
+  margin-right: 30px;
+}
+
+.nav-menu a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 16px;
+  padding: 10px 8px;
+  display: block;
+  transition: background-color 0.2s ease;
+}
+
+.nav-menu a:hover {
+  background-color: #333;
+  border-radius: 4px;
+}
+
+/* ==========================
+   DÉROULANT NIVEAU 1 (“CLIPS ▾”)
+   ========================== */
+.dropdown:hover > .dropdown-menu {
+  display: block;
+}
+
+.dropdown-menu {
+  list-style: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  min-width: 160px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+
+.dropdown-menu li {
+  position: relative;
+}
+
+.dropdown-menu a {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.dropdown-menu a:hover {
+  background-color: #575757;
+}
+
+/* ==========================
+   DÉROULANT NIVEAU 2 (SI NÉCESSAIRE)
+   ========================== */
+.dropdown-sub:hover > .dropdown-submenu {
+  display: block;
+}
+
+.dropdown-submenu {
+  list-style: none;
+  position: absolute;
+  top: 0;
+  left: 100%;
+  background-color: #222;
+  min-width: 140px;
+  display: none;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  border-radius: 4px;
+}
+
+.dropdown-submenu a {
+  padding: 10px 12px;
+  font-size: 14px;
+}
+
+.dropdown-submenu a:hover {
+  background-color: #575757;
+}
+
+/* ==========================
+   ANIMATION “float” POUR #dreams
+   ========================== */
+@keyframes float {
+  0%   { transform: translateY(0px); }
+  50%  { transform: translateY(-8px); }
+  100% { transform: translateY(0px); }
+}
+
+/* ==========================
+   SECTION ACCUEIL (HOME)
+   ========================== */
+.home-section {
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.dream-tag {
+  font-size: 18px;
+  color: #aaa;
+  letter-spacing: 3px;
+  animation: float 3s ease-in-out infinite;
+  margin-bottom: 15px;
+}
+
+.artist-title {
+  font-size: 72px;
+  letter-spacing: 4px;
+  margin: 10px 0 20px 0;
+}
+
+.info-line {
+  font-size: 16px;
+  color: #ccc;
+  margin-bottom: 40px;
+}
+
+/* ==========================
+   TITRE DE SECTION
+   ========================== */
+.section-header {
+  text-align: center;
+  font-size: 40px;
+  letter-spacing: 2px;
+  margin-bottom: 40px;
+}
+
+/* ==========================
+   LISTE DE CLIPS “VIDEOS PLEINE LARGEUR”
+   ========================== */
+.full-width-videos {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  align-items: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.full-width-videos .clip-item {
+  width: 100%;
+  max-width: 900px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   CONTENEUR VIDÉO : RATIO 16:9 (PLEIN FORMAT)
+   ========================== */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================
+   LISTE DE CLIPS “VIDEOS MOITIÉ DE TAILLE” (GRILLE 2 COLONNES)
+   ========================== */
+.clips-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+  margin: 0 auto;
+  width: 100%;
+}
+
+.clips-grid .clip-item {
+  width: calc(50% - 10px); /* Deux colonnes, espace de 20px total */
+  max-width: 450px;
+  padding: 10px;
+  box-sizing: border-box;
+}
+
+/* ==========================
+   CONTENEUR VIDÉO : RATIO 16:9 (PETITES VIGNETTES)
+   ========================== */
+.small-video-container {
+  position: relative;
+  width: 100%;
+  padding-bottom: 56.25%; /* 16:9 */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.small-video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* Effet hover/zoom sur tout le bloc vidéo */
+.clip-item:hover .video-container,
+.clip-item:hover .small-video-container {
+  transform: scale(1.05);
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* ==========================
+   STYLE POUR LA “FEATURE-VIDEO” (Vidéo en grand format, section artistes)
+   ========================== */
+.feature-video {
+  margin-bottom: 40px;     /* espace sous la grande vidéo */
+  text-align: center;      /* centre titre + vidéo */
+}
+
+.feature-video .clip-title {
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.feature-video .video-container {
+  position: relative;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 56.25%; /* 16:9 */
+  background: #000;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+.feature-video .video-container iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+/* ==========================
+   SPÉCIFIQUE AUX SECTIONS ARTISTES
+   ========================== */
+.clips-section,
+.artist-section,
+.reseaux-section {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 20px;
+}
+
+/* ==========================
+   STYLE POUR L’ITEM “UPCOMING” (capture + #soon)
+   ========================== */
+.upcoming-item {
+  position: relative;
+}
+
+.upcoming-item .upcoming-img {
+  display: block;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.upcoming-item:hover .upcoming-img {
+  transform: scale(1.03);
+  box-shadow: 0 0 30px rgba(255,255,255,0.2);
+}
+
+/* Surcouche “#soon” */
+.soon-tag {
+  position: absolute;
+  top: 12px;
+  left: 12px;
+  background: rgba(255, 0, 0, 0.8); /* rouge semi-transparent */
+  color: #fff;
+  font-weight: bold;
+  padding: 4px 8px;
+  border-radius: 4px;
+  font-size: 14px;
+  pointer-events: none;     /* pas de clic sur #soon */
+}
+
+/* ==========================
+   STYLE POUR LA COVER MXP (SECTION “AUTRE”)
+   ========================== */
+.mxp-cover-container {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto 60px; /* espace sous la cover */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+  text-align: center;
+}
+
+.mxp-cover-img {
+  width: 100%;
+  display: block;
+}
+
+.mxp-cover-text {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: #fff;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+}
+
+.mxp-cover-text h3 {
+  font-size: 28px;
+  margin-bottom: 8px;
+}
+
+.mxp-cover-text p {
+  font-size: 16px;
+  margin: 0;
+}
+
+/* ==========================
+   SECTION RÉSEAUX / CONTACT
+   ========================== */
+.icon-line {
+  display: flex;
+  gap: 40px;
+  justify-content: center;
+  margin-bottom: 40px;
+}
+
+.icon-line img {
+  width: 50px;
+  transition: transform 0.3s ease;
+}
+
+.icon-line img:hover {
+  transform: scale(1.2);
+}
+
+.bottom-note {
+  text-align: center;
+  font-size: 14px;
+  color: #aaa;
+  font-style: italic;
+  max-width: 300px;
+  margin: 0 auto;
+  padding-top: 20px;
+}
+
+/* ==========================
+   RESPONSIVE (TABLETTE / MOBILE)
+   ========================== */
+@media (max-width: 768px) {
+  .clip-title {
+    font-size: 20px;
+  }
+  .section-header {
+    font-size: 34px;
+  }
+  .small-video-container,
+  .video-container {
+    width: 90%;
+    padding-bottom: 56.25%;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+  body {
+    padding-top: 52px;
+  }
+  .clips-grid .clip-item {
+    width: 100%; /* Sur mobile, on passe en une seule colonne */
+    max-width: 100%;
+  }
+}
+
+/* — Spécial “Autre : Archives & vidéos” —
+   La 3ᵉ tuile (.clip-item:nth-child(3)) occupe toute la largeur et se centre */
+#autre .clips-grid.small-videos .clip-item:nth-child(3){
+  flex: 0 0 100%;   /* prend une ligne entière */
+  max-width: 500px; /* largeur max du bloc (ajuste si besoin) */
+  margin: 20px auto;/* auto → centre horizontalement */
+}
+
+
+@media (max-width: 480px) {
+  .clip-title {
+    font-size: 18px;
+  }
+  .section-header {
+    font-size: 28px;
+  }
+  .small-video-container,
+  .video-container {
+    width: 100%;
+    padding-bottom: 56.25%;
+  }
+  .nav-menu {
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  body {
+    padding-top: 48px;
+  }
+}
+
+/* ===== ANIM COVER (AUTRE) ===== */
+.autre-anim-container {
+  position: relative;
+  max-width: 800px;          /* même largeur que la cover MXP */
+  margin: 0 auto 60px;       /* espace dessous */
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,0.1);
+}
+
+/* Vidéo plein conteneur, ratio conservé */
+.autre-anim-video {
+  display: block;
+  width: 100%;
+  height: auto;              /* laisse le navigateur gérer le ratio */
+}
+
+/* Texte overlay optionnel (#MXP – Cover animée) */
+.autre-anim-overlay {
+  position: absolute;
+  bottom: 16px;
+  left: 16px;
+  color: #fff;
+  font-size: 22px;
+  font-weight: bold;
+  text-shadow: 0 2px 8px rgba(0,0,0,0.6);
+  pointer-events: none;      /* évite de bloquer les clics */
+}
+
+/* — Cover fixe MXP : petit carré + espace sous la vidéo animée — */
+.mxp-cover-container{
+  width: 300px;              /* carré 300 × 300 */
+  height: 300px;
+  margin: 40px auto 60px;    /* 40 px d’écart au-dessus, 60 px dessous */
+  position: relative;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(255,255,255,.1);
+}
+
+.mxp-cover-img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;         /* garde le ratio, crop si besoin */
+  display: block;
+}
+
+.mxp-cover-text{
+  position: absolute;
+  bottom: 12px;
+  left: 12px;
+  color:#fff;
+  text-shadow:0 2px 8px rgba(0,0,0,.6);
+}
+.mxp-cover-text h3{font-size:20px;margin:0 0 4px}
+.mxp-cover-text p {font-size:12px;margin:0}
+
+/* Sous-titre optionnel dans “Autre” */
+.autre-subheader{
+  font-size:28px;
+  text-align:center;
+  margin:60px 0 30px;
+  letter-spacing:1px;
+}
+
+/* Lien d’archive en bas */
+.autre-link{
+  text-align:center;
+  margin:30px 0 0;
+  font-size:16px;
+}
+.autre-link a{
+  color:#fff;
+  text-decoration:underline;
+}
+.autre-link a:hover{
+  color:#aaa;
+}
+
+/* === Bloc logo Insta centré + handles === */
+.insta-duo{
+  text-align:center;
+  margin:50px 0 0;        /* espace avant le footer/contact */
+}
+
+.insta-logo{
+  width:60px;              /* taille du logo */
+  margin-bottom:8px;
+}
+
+.insta-handles a{
+  color:#fff;
+  text-decoration:none;
+  font-size:18px;
+}
+
+.insta-handles a:hover{
+  text-decoration:underline;
+  color:#aaa;
+}
+
+/* ===== BLOCS RÉSEAUX SOCIAUX CENTRÉS ===== */
+.social-block{
+  text-align:center;
+  margin:40px auto 0;
+}
+
+.social-block + .social-block{   /* espacement entre les blocs */
+  margin-top:50px;
+}
+
+.social-logo{
+  width:60px;
+  height:auto;
+  margin-bottom:8px;
+}
+
+.social-links a{
+  color:#fff;
+  font-size:18px;
+  text-decoration:none;
+}
+
+.social-links a:hover{
+  text-decoration:underline;
+  color:#aaa;
+}
+html{
+  scroll-behavior:smooth;   /* fallback si JS désactivé */
+}
